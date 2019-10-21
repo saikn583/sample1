@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="441dad64-718a-482e-a736-8e143bb15dc2" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="sampleFlow" doc:id="1ab07088-ba7d-4d56-ad4b-ac7e50cabf65" >
+		<http:listener doc:name="Listener" doc:id="ed818612-c8a9-4ce0-971e-05ac7860ec27" config-ref="HTTP_Listener_config" path="/sample"/>
+		<set-payload value="first sample project" doc:name="Set Payload" doc:id="c8d4222f-41c6-48e1-8ae3-357d02bcb7dd" />
+		<logger level="INFO" doc:name="Logger" doc:id="2aa1d397-77be-4264-8468-f5c540ba1b36" message="sample created"/>
+		<set-payload value="sample project demo" doc:name="Set Payload" doc:id="bd409028-50cd-43a7-8993-cbb022c380c1" />
+	</flow>
+</mule>
